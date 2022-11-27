@@ -6,17 +6,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
 @Document(collection = "Teams")
-public class teamModel {
+public class TeamModel {
 
     @Id
     private int id;
     private String name;
-    private List<cyclistModel> cyclists;
+    private List<CyclistModel> cyclists;
 
-    public teamModel() {
+    public TeamModel() {
     }
 
-    public teamModel(int id, String name, List<cyclistModel> cyclists) {
+    public TeamModel(int id, String name, List<CyclistModel> cyclists) {
         this.id = id;
         this.name = name;
         this.cyclists = cyclists;
@@ -38,17 +38,17 @@ public class teamModel {
         this.name = name;
     }
 
-    public List<cyclistModel> getCyclists() {
+    public List<CyclistModel> getCyclists() {
         return cyclists;
     }
 
-    public void setCyclists(List<cyclistModel> cyclists) {
+    public void setCyclists(List<CyclistModel> cyclists) {
         this.cyclists = cyclists;
     }
 
     @Override
     public String toString() {
-        return "teamModel{" +
+        return "TeamModel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", cyclists=" + cyclists +

@@ -5,5 +5,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/cyclists")
-public class cyclistsController {
+public class CyclistsController {
 }

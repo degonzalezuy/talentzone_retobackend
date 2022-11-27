@@ -1,13 +1,13 @@
 package co.com.sofka.services;
 
-import co.com.sofka.repository.cyclistRepository;
+import co.com.sofka.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class cyclistService {
+public class CountryService {
 
     @Autowired
-    private cyclistRepository repo;
+    private CountryRepository repo;
 
 }

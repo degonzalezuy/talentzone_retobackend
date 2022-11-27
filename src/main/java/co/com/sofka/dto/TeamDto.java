@@ -1,18 +1,16 @@
 package co.com.sofka.dto;
 
-import co.com.sofka.model.cyclistModel;
-
 import java.util.List;
 
-public class teamDto {
+public class TeamDto {
     private int id;
     private String name;
-    private List<cyclistDto> cyclists;
+    private List<CyclistDto> cyclists;
 
-    public teamDto() {
+    public TeamDto() {
     }
 
-    public teamDto(int id, String name, List<cyclistDto> cyclists) {
+    public TeamDto(int id, String name, List<CyclistDto> cyclists) {
         this.id = id;
         this.name = name;
         this.cyclists = cyclists;
@@ -34,17 +32,17 @@ public class teamDto {
         this.name = name;
     }
 
-    public List<cyclistDto> getCyclists() {
+    public List<CyclistDto> getCyclists() {
         return cyclists;
     }
 
-    public void setCyclists(List<cyclistDto> cyclists) {
+    public void setCyclists(List<CyclistDto> cyclists) {
         this.cyclists = cyclists;
     }
 
     @Override
     public String toString() {
-        return "teamDto{" +
+        return "TeamDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", cyclists=" + cyclists +

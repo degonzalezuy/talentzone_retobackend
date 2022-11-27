@@ -1,14 +1,20 @@
-package co.com.sofka.dto;
+package co.com.sofka.model;
 
-public class countryDto {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="Countries")
+public class CountryModel {
+    @Id
     private int id;
     private String name;
     private String code;
 
-    public countryDto() {
+    public CountryModel(){
+
     }
 
-    public countryDto(int id, String name, String code) {
+    public CountryModel(int id, String name, String code) {
         this.id = id;
         this.name = name;
         this.code = code;
@@ -36,5 +42,14 @@ public class countryDto {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    @Override
+    public String toString() {
+        return "CountryModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                '}';
     }
 }

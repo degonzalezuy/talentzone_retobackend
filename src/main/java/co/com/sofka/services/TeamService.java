@@ -1,13 +1,13 @@
 package co.com.sofka.services;
 
-import co.com.sofka.repository.teamRepository;
+import co.com.sofka.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class teamService {
+public class TeamService {
 
     @Autowired
-    private teamRepository repo;
+    private TeamRepository repo;
 
 }

@@ -4,5 +4,5 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/countries")
-public class countryController {
+public class CountryController {
 }

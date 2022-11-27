@@ -4,16 +4,16 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Cyclists")
-public class cyclistModel {
+public class CyclistModel {
     @Id
     private int id;
     private String fullName;
-    private countryModel country;
+    private CountryModel country;
 
-    public cyclistModel() {
+    public CyclistModel() {
     }
 
-    public cyclistModel(int id, String fullName, countryModel country) {
+    public CyclistModel(int id, String fullName, CountryModel country) {
         this.id = id;
         this.fullName = fullName;
         this.country = country;
@@ -35,11 +35,11 @@ public class cyclistModel {
         this.fullName = fullName;
     }
 
-    public countryModel getCountry() {
+    public CountryModel getCountry() {
         return country;
     }
 
-    public void setCountry(countryModel country) {
+    public void setCountry(CountryModel country) {
         this.country = country;
     }
 

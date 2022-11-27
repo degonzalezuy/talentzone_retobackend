@@ -1,16 +1,14 @@
 package co.com.sofka.dto;
 
-import co.com.sofka.model.countryModel;
-
-public class cyclistDto {
+public class CyclistDto {
     private int id;
     private String fullName;
-    private countryDto country;
+    private CountryDto country;
 
-    public cyclistDto() {
+    public CyclistDto() {
     }
 
-    public cyclistDto(int id, String fullName, countryDto country) {
+    public CyclistDto(int id, String fullName, CountryDto country) {
         this.id = id;
         this.fullName = fullName;
         this.country = country;
@@ -32,11 +30,11 @@ public class cyclistDto {
         this.fullName = fullName;
     }
 
-    public countryDto getCountry() {
+    public CountryDto getCountry() {
         return country;
     }
 
-    public void setCountry(countryDto country) {
+    public void setCountry(CountryDto country) {
         this.country = country;
     }
 }
