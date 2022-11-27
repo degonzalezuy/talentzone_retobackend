@@ -6,24 +6,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Cyclists")
 public class CyclistModel {
     @Id
-    private int id;
+    private String id;
     private String fullName;
     private CountryModel country;
 
     public CyclistModel() {
     }
 
-    public CyclistModel(int id, String fullName, CountryModel country) {
+    public CyclistModel(String id, String fullName, CountryModel country) {
         this.id = id;
         this.fullName = fullName;
         this.country = country;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

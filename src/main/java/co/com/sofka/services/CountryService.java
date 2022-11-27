@@ -12,14 +12,14 @@ import reactor.core.publisher.Mono;
 public class CountryService{
 
     @Autowired
-    private CountryRepository repo;
+    private CountryRepository countryRepository;
 
     public Flux<CountryDto> getCountries(){
-        return repo.findAll().map(AppUtils::countryEntityToDto);
+        return countryRepository.findAll().map(AppUtils::countryEntityToDto);
     }
 
     public Mono<CountryDto> getCountry(String id){
-        return repo.findById(id).map(AppUtils::countryEntityToDto);
+        return countryRepository.findById(id).map(AppUtils::countryEntityToDto);
     }
     public Mono<CountryDto> save(CountryDto countryDTO) {
         return null;
@@ -27,20 +27,20 @@ public class CountryService{
 
     public Mono<CountryDto> saveCountry(Mono<CountryDto> countryDtoMono){
         return countryDtoMono.map(AppUtils::countryDtoToModel)
-                .flatMap(repo::insert)
+                .flatMap(countryRepository::insert)
                 .map(AppUtils::countryEntityToDto);
     }
 
     public Mono<CountryDto> updateCountry(Mono<CountryDto> countryDtoMono, String id){
-        return repo.findById(id)
-                .flatMap(c -> countryDtoMono.map(AppUtils::countryDtoToModel)
+        return countryRepository.findById(id)
+                .flatMap(country -> countryDtoMono.map(AppUtils::countryDtoToModel)
                         .doOnNext(e->e.setId(id)))
-                .flatMap(repo::save)
+                .flatMap(countryRepository::save)
                 .map(AppUtils::countryEntityToDto);
     }
 
     public Mono<Void> deleteCountry(String id){
-        return repo.deleteById(id);
+        return countryRepository.deleteById(id);
     }
 
 

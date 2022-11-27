@@ -25,7 +25,7 @@ public class AppUtils {
     }
 
     //Parse Cyclist Model  to Dto
-    public CyclistDto cyclistModelToDto(CyclistModel model){
+    public static CyclistDto cyclistModelToDto(CyclistModel model){
         CyclistDto dto = new CyclistDto();
         BeanUtils.copyProperties(model, dto);
         return dto;
@@ -38,7 +38,7 @@ public class AppUtils {
     }
 
     //Parse Team Model  to Dto
-    public TeamDto TeamModelToDto(TeamModel model){
+    public static TeamDto TeamModelToDto(TeamModel model){
         TeamDto dto = new TeamDto();
         BeanUtils.copyProperties(model, dto);
         return dto;

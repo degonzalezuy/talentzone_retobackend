@@ -1,24 +1,24 @@
 package co.com.sofka.dto;
 
 public class CyclistDto {
-    private int id;
+    private String id;
     private String fullName;
     private CountryDto country;
 
     public CyclistDto() {
     }
 
-    public CyclistDto(int id, String fullName, CountryDto country) {
+    public CyclistDto(String id, String fullName, CountryDto country) {
         this.id = id;
         this.fullName = fullName;
         this.country = country;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -55,7 +55,6 @@ public class CountryController {
     @PutMapping("/{id}")
     public ResponseEntity<Mono<CountryDto>> updateCountry(@RequestBody Mono<CountryDto> countryDtoMono, @PathVariable String id){
         return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_JSON)
                 .body(service.updateCountry(countryDtoMono, id));
     }
 
