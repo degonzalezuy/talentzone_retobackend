@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="Countries")
 public class CountryModel {
     @Id
-    private int id;
+    private String id;
     private String name;
     private String code;
 
@@ -14,17 +14,17 @@ public class CountryModel {
 
     }
 
-    public CountryModel(int id, String name, String code) {
+    public CountryModel(String id, String name, String code) {
         this.id = id;
         this.name = name;
         this.code = code;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
