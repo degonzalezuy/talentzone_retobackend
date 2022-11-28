@@ -2,6 +2,7 @@ package co.com.sofka.services;
 
 import co.com.sofka.dto.CyclistDto;
 import co.com.sofka.dto.TeamDto;
+import co.com.sofka.interfaces.ITeam;
 import co.com.sofka.model.TeamModel;
 import co.com.sofka.repository.CyclistRepository;
 import co.com.sofka.repository.TeamRepository;
@@ -12,23 +13,25 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-public class TeamService {
+public class TeamService implements ITeam {
 
     @Autowired
     private TeamRepository teamRepository;
 
     @Autowired
     private CyclistRepository cyclistRepository;
+    @Override
     public Mono<TeamDto> findTeamById(String id) {
         return teamRepository.findById(id).map(AppUtils::teamModelToDto);
     }
 
+    @Override
     public Mono<TeamDto> save(TeamDto teamDto) {
         TeamModel teamModel = AppUtils.teamDtoToModel(teamDto);
         return teamRepository.save(teamModel)
                 .map(AppUtils::teamModelToDto);
     }
-
+    @Override
     public Flux<CyclistDto> findCyclists(String teamId) {
         return teamRepository.findAll()
                 .filter(teamModel -> teamModel.getId().equals(teamId))
@@ -36,6 +39,7 @@ public class TeamService {
                 .map(AppUtils::cyclistModelToDto);
     }
 
+    @Override
     public Mono<TeamDto> addCyclistToTeam(String teamId, String cyclistId){
         return teamRepository.findById(teamId)
                 .flatMap(teamModel -> {
@@ -50,13 +54,14 @@ public class TeamService {
                 }).map(AppUtils::teamModelToDto);
     }
 
+    @Override
     public Mono<Void> delete(String id) {
         return teamRepository
                 .findById(id)
                 .flatMap(teamModel -> teamRepository.deleteById(teamModel.getId()))
                 .switchIfEmpty(Mono.empty());
     }
-
+    @Override
     public Mono<TeamDto> update(TeamDto teamDto, String id){
         return teamRepository.findById(id)
                 .flatMap(teamModel -> {

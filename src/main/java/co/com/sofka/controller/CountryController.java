@@ -42,7 +42,7 @@ public class CountryController {
      */
     @PostMapping
     public ResponseEntity<Mono<CountryDto>> saveCountry(@RequestBody CountryDto countryDto){
-        return ResponseEntity.ok().body(service.save(countryDto));
+        return ResponseEntity.ok().body(service.saveCountry(countryDto));
     }
 
     /***

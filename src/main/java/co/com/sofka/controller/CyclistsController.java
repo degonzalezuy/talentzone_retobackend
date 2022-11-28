@@ -52,7 +52,7 @@ public class CyclistsController {
      */
     @PostMapping()
     public ResponseEntity<Mono<CyclistDto>> save(@RequestBody CyclistDto cyclistDto){
-        return ResponseEntity.ok().body(service.save(cyclistDto));
+        return ResponseEntity.ok().body(service.saveCyclist(cyclistDto));
     }
 
     /***
@@ -64,7 +64,7 @@ public class CyclistsController {
     @PutMapping("/{id}")
     public ResponseEntity<Mono<CyclistDto>>updateCyclist(@RequestBody Mono<CyclistDto> cyclistDtoMono, @PathVariable String id){
         return ResponseEntity.ok()
-                .body(service.update(cyclistDtoMono, id));
+                .body(service.updateCyclist(cyclistDtoMono, id));
     }
 
     /***
