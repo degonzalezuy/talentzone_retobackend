@@ -17,8 +17,8 @@ public class CyclistsController {
     private CyclistService service;
 
     /***
-     *
-     * @return
+     * Get for url localhost:8080/cyclists
+     * @return Response Entity with all Cyclists
      */
     @GetMapping
     public ResponseEntity<Flux<CyclistDto>> getCyclists(){
@@ -26,9 +26,9 @@ public class CyclistsController {
     }
 
     /***
-     *
+     * Get for url localhost:8080/cyclists/country
      * @param country
-     * @return
+     * @return Response Entity with Cyclists by country
      */
     @GetMapping("/country/{country}")
     public ResponseEntity<Flux<CyclistDto>> findCyclistsByCountry(@PathVariable(value="country")String country){
@@ -36,9 +36,9 @@ public class CyclistsController {
     }
 
     /***
-     *
+     * Get for url localhost:8080/cyclists
      * @param id
-     * @return
+     * @return Response Entity with cyclist find by id
      */
     @GetMapping("/{id}")
     public ResponseEntity<Mono<CyclistDto>> findCyclistById(@PathVariable String id){
@@ -46,9 +46,9 @@ public class CyclistsController {
     }
 
     /***
-     *
+     * Post for url localhost:8080/cyclists
      * @param cyclistDto
-     * @return
+     * @return Response Entity with Cyclist Saved
      */
     @PostMapping()
     public ResponseEntity<Mono<CyclistDto>> save(@RequestBody CyclistDto cyclistDto){
@@ -56,10 +56,10 @@ public class CyclistsController {
     }
 
     /***
-     *
+     * Put for url localhost:8080/cyclists
      * @param cyclistDtoMono
      * @param id
-     * @return
+     * @return Response Entity with Cyclist Updated
      */
     @PutMapping("/{id}")
     public ResponseEntity<Mono<CyclistDto>>updateCyclist(@RequestBody Mono<CyclistDto> cyclistDtoMono, @PathVariable String id){
@@ -68,9 +68,9 @@ public class CyclistsController {
     }
 
     /***
-     *
+     * Delete for url localhost:8080/cyclists
      * @param id
-     * @return
+     * @return Void
      */
     @DeleteMapping("/{id}")
     public Mono<ResponseEntity<Void>> delete(@PathVariable("id") String id){

@@ -9,24 +9,24 @@ import java.util.List;
 public class TeamModel {
 
     @Id
-    private int id;
+    private String id;
     private String name;
     private List<CyclistModel> cyclists;
 
     public TeamModel() {
     }
 
-    public TeamModel(int id, String name, List<CyclistModel> cyclists) {
+    public TeamModel(String id, String name, List<CyclistModel> cyclists) {
         this.id = id;
         this.name = name;
         this.cyclists = cyclists;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

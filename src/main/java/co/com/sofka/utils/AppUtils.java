@@ -12,7 +12,7 @@ import org.springframework.beans.BeanUtils;
 public class AppUtils {
 
     //Parse Country Model  to Dto
-    public static CountryDto countryEntityToDto(CountryModel model){
+    public static CountryDto countryModelToDto(CountryModel model){
         CountryDto countryDto = new CountryDto();
         BeanUtils.copyProperties(model, countryDto);
         return countryDto;
@@ -38,7 +38,7 @@ public class AppUtils {
     }
 
     //Parse Team Model  to Dto
-    public static TeamDto TeamModelToDto(TeamModel model){
+    public static TeamDto teamModelToDto(TeamModel model){
         TeamDto dto = new TeamDto();
         BeanUtils.copyProperties(model, dto);
         return dto;

@@ -4,7 +4,6 @@ import co.com.sofka.dto.CountryDto;
 import co.com.sofka.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -38,12 +37,12 @@ public class CountryController {
 
     /***
      * Post for url localhost:8080/countries
-     * @param countryDtoMono
+     * @param countryDto
      * @return Response Entity with Country saved
      */
     @PostMapping
-    public ResponseEntity<Mono<CountryDto>> saveCountry(@RequestBody Mono<CountryDto> countryDtoMono){
-        return ResponseEntity.ok().body(service.saveCountry(countryDtoMono));
+    public ResponseEntity<Mono<CountryDto>> saveCountry(@RequestBody CountryDto countryDto){
+        return ResponseEntity.ok().body(service.save(countryDto));
     }
 
     /***
@@ -61,7 +60,7 @@ public class CountryController {
     /***
      * Delete for url localhost:8080/countries
      * @param id
-     * @return
+     * @return Void
      */
     @DeleteMapping("/{id}")
     public Mono<ResponseEntity<Void>> deleteCountry(@PathVariable String id){

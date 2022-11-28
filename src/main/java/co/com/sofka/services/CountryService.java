@@ -1,6 +1,7 @@
 package co.com.sofka.services;
 
 import co.com.sofka.dto.CountryDto;
+import co.com.sofka.model.CountryModel;
 import co.com.sofka.repository.CountryRepository;
 import co.com.sofka.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,28 +16,30 @@ public class CountryService{
     private CountryRepository countryRepository;
 
     public Flux<CountryDto> getCountries(){
-        return countryRepository.findAll().map(AppUtils::countryEntityToDto);
+        return countryRepository.findAll().map(AppUtils::countryModelToDto);
     }
 
     public Mono<CountryDto> getCountry(String id){
-        return countryRepository.findById(id).map(AppUtils::countryEntityToDto);
+        return countryRepository.findById(id).map(AppUtils::countryModelToDto);
     }
     public Mono<CountryDto> save(CountryDto countryDTO) {
-        return null;
+        CountryModel countryModel = AppUtils.countryDtoToModel(countryDTO);
+        return countryRepository.save(countryModel)
+                .map(AppUtils::countryModelToDto);
     }
 
-    public Mono<CountryDto> saveCountry(Mono<CountryDto> countryDtoMono){
+   /* public Mono<CountryDto> saveCountry(Mono<CountryDto> countryDtoMono){
         return countryDtoMono.map(AppUtils::countryDtoToModel)
                 .flatMap(countryRepository::insert)
-                .map(AppUtils::countryEntityToDto);
-    }
+                .map(AppUtils::countryModelToDto);
+    }*/
 
     public Mono<CountryDto> updateCountry(Mono<CountryDto> countryDtoMono, String id){
         return countryRepository.findById(id)
                 .flatMap(country -> countryDtoMono.map(AppUtils::countryDtoToModel)
                         .doOnNext(e->e.setId(id)))
                 .flatMap(countryRepository::save)
-                .map(AppUtils::countryEntityToDto);
+                .map(AppUtils::countryModelToDto);
     }
 
     public Mono<Void> deleteCountry(String id){
