@@ -8,12 +8,12 @@ public class CyclistModel {
     @Id
     private String id;
     private String fullName;
-    private CountryModel country;
+    private String country;
 
     public CyclistModel() {
     }
 
-    public CyclistModel(String id, String fullName, CountryModel country) {
+    public CyclistModel(String id, String fullName, String country) {
         this.id = id;
         this.fullName = fullName;
         this.country = country;
@@ -35,11 +35,11 @@ public class CyclistModel {
         this.fullName = fullName;
     }
 
-    public CountryModel getCountry() {
+    public String getCountry() {
         return country;
     }
 
-    public void setCountry(CountryModel country) {
+    public void setCountry(String country) {
         this.country = country;
     }
 

@@ -27,6 +27,7 @@ public class TeamService implements ITeam {
 
     @Override
     public Mono<TeamDto> save(TeamDto teamDto) {
+        System.out.println(teamDto);
         TeamModel teamModel = AppUtils.teamDtoToModel(teamDto);
         return teamRepository.save(teamModel)
                 .map(AppUtils::teamModelToDto);

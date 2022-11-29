@@ -3,12 +3,12 @@ package co.com.sofka.dto;
 public class CyclistDto {
     private String id;
     private String fullName;
-    private CountryDto country;
+    private String country;
 
     public CyclistDto() {
     }
 
-    public CyclistDto(String id, String fullName, CountryDto country) {
+    public CyclistDto(String id, String fullName, String country) {
         this.id = id;
         this.fullName = fullName;
         this.country = country;
@@ -30,11 +30,11 @@ public class CyclistDto {
         this.fullName = fullName;
     }
 
-    public CountryDto getCountry() {
+    public String getCountry() {
         return country;
     }
 
-    public void setCountry(CountryDto country) {
+    public void setCountry(String country) {
         this.country = country;
     }
 }
